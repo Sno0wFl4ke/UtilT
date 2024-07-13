@@ -1,12 +1,13 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
-    name='mycli',
+    name='utilT',
     version='0.1.0',
-    packages=['mycli'],
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     entry_points={
         'console_scripts': [
-            'mycli = mycli.__main__:main'
+            'utilT = src.__main__:main'
         ]
     }
 )
