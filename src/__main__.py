@@ -3,19 +3,17 @@ from module_registry import register, get_registered_functions
 
 # Module hier registrieren
 def register_modules():
-    register('funcmodules.hello', 'Hello Module')
-    register('funcmodules.bye', 'Bye Module')
+    register('funcmodules.downloader', 'download', 'Download Videos from YT, Insta or TikTok')
 
 def display_menu(functions_dict):
     print("Bitte wählen Sie eine Funktion aus:")
     option_number = 1
     function_mapping = {}
     
-    for module_name, functions in functions_dict.items():
-        for func_name, func in functions:
-            print(f"{option_number}: {module_name} - {func_name}")
-            function_mapping[option_number] = func
-            option_number += 1
+    for display_name, func in functions_dict.items():
+        print(f"{option_number}: {display_name}")
+        function_mapping[option_number] = func
+        option_number += 1
     print(f"{option_number}: Beenden")
     return function_mapping, option_number
 

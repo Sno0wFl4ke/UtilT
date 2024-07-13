@@ -2,14 +2,14 @@ import importlib
 
 registered_modules = []
 
-def register(module_name, display_name):
+def register(module_name, function_name, display_name):
     module = importlib.import_module(module_name)
-    registered_modules.append((module, display_name))
+    function = getattr(module, function_name)
+    registered_modules.append((function, display_name))
 
 def get_registered_functions():
     functions_dict = {}
-    for module, display_name in registered_modules:
-        functions = [(name, func) for name, func in module.__dict__.items() if callable(func)]
-        if functions:
-            functions_dict[display_name] = functions
+    for function, display_name in registered_modules:
+        if function:
+            functions_dict[display_name] = function
     return functions_dict
