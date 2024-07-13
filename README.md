@@ -1,6 +1,6 @@
-# My CLI
+# UtilT - Easy CLI-Program
 
-Dies ist ein einfaches CLI-Programm in Python.
+N einfaches CLI-Programm in Python.
 
 ## Installation
 
