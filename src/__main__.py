@@ -1,6 +1,6 @@
 import sys
-from .classmodule import MyClass
-from .funcmodule import my_function
+from classmodules.classmodule import MyClass
+from funcmodules.downloader import func_downloader
 
 def main():
     print('in main')
@@ -9,7 +9,7 @@ def main():
     for arg in args:
         print('passed argument :: {}'.format(arg))
 
-    my_function('hello world')
+    func_downloader('Downloader')
 
     my_object = MyClass('Thomas')
     my_object.say_name()
