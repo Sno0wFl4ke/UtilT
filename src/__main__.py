@@ -1,6 +1,7 @@
 import sys
-from .classmodule import MyClass
-from .funcmodule import my_function
+from classmodule import MyClass
+from funcmodule import my_function
+
 
 def main():
     print('in main')
@@ -13,6 +14,7 @@ def main():
 
     my_object = MyClass('Thomas')
     my_object.say_name()
+
 
 if __name__ == '__main__':
     main()
