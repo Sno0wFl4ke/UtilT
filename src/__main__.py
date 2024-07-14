@@ -1,5 +1,10 @@
 import sys
+import os
 from module_registry import register, get_registered_functions
+from configs.json_handler import json_handler
+from configs.settings_handler import load_settings
+
+DOWNLOAD_PATH = ''
 
 # Module hier registrieren
 def register_modules():
@@ -18,7 +23,14 @@ def display_menu(functions_dict):
     return function_mapping, option_number
 
 def main():
+
+    print("Loading settings...")
+    load_settings()
+    print(f"Settings loaded successfully. Download Path: {DOWNLOAD_PATH}")
+    print("Loading functions...")
     register_modules()
+    print("Functions loaded successfully")
+    os.system('cls||clear')
     functions_dict = get_registered_functions()
 
     while True:
