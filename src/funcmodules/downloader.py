@@ -3,7 +3,6 @@ import os
 from pathlib import Path
 import subprocess
 from time import sleep
-from pytube import YouTube
 
 from __main__ import display_menu
 
@@ -47,7 +46,8 @@ def download_video(url):
             print('YouTube not available')
             sleep(3)
             display_menu()
-        yt = YouTube(url)
+        import pytube
+        yt = pytube.YouTube(url)
         print(f'Titel: {yt.title}')
         yt.register_on_progress_callback(on_progress)
         stream = yt.streams.get_highest_resolution()
@@ -68,7 +68,7 @@ def download_video(url):
             print('TikTok not available')
             sleep(3)
             display_menu()
-        from TikTokApi import TikTokApi
+            import TikTokApi
         api = TikTokApi()
         video_data = api.video(url=url).bytes()
         with open(os.path.join(download_folder, "tiktok_video.mp4"), "wb") as file:
